@@ -29,15 +29,14 @@ Python 3.11 or newer is required by the current implementation.
 ## Install
 
 ```bash
-git clone https://github.com/cnberry/switchctl.git
-cd switchctl
-./script/install
+cd /path/to/private/home-ops
+./bin/bootstrap-ctls switchctl
 ```
 
-`script/install` is the stable repository contract used by private deployment
-automation. Today it installs the Python package with `pipx`; it can be replaced
-by a Rust or binary installer later without changing callers. `just install`
-uses the same contract.
+The private `home-ops` bootstrap is the canonical installer: it populates the
+real switch inventory, calls this repository's stable `script/install`
+contract, and creates `/usr/local/bin/switchctl` backed by an isolated system
+environment under `/usr/local/lib/home-ops/ctls`.
 
 ## Configure private switches
 
@@ -45,8 +44,8 @@ Install the sanitized example outside the repository, then replace it with your
 own endpoint inventory:
 
 ```bash
-mkdir -p ~/.config/switchctl
-install -m 600 config/switches.example.json ~/.config/switchctl/config.json
+sudo install -d -m 700 /usr/local/config/switchctl
+sudo install -m 600 config/switches.example.json /usr/local/config/switchctl/config.json
 ```
 
 Set `SWITCHCTL_CONFIG=/path/to/config.json` or pass global `--config PATH` to
@@ -54,18 +53,18 @@ select another private file. Host addresses, device IDs, backend IDs, rooms,
 names, notes, and tags are private deployment data and belong in a private
 configuration repository.
 
-Tuya local keys should not be committed even to a private repository. Use a
-named environment reference in config:
+Store each Tuya local key directly in the private mode-`0600` configuration:
 
 ```json
 {
-  "local_key_env": "SWITCHCTL_EXAMPLE_OUTLET_LOCAL_KEY"
+  "local_key": "replace-with-local-key"
 }
 ```
 
-Then supply that variable from a password manager before running the command.
-The legacy inline `local_key` field remains supported for a tightly permissioned
-local config file.
+The public repository and command output must never contain or print real keys.
+The private `home-ops` repository is the deployment source of truth and its
+bootstrap installs the complete configuration without runtime environment
+variables.
 
 ## Inspect state
 
@@ -99,10 +98,9 @@ targets fan out only after that explicit guard. See
 
 | Data | Default path | Git policy |
 | --- | --- | --- |
-| Switch inventory | `~/.config/switchctl/config.json` | Private config repo; no keys |
+| Switch inventory and local keys | `/usr/local/config/switchctl/config.json` | Private config repo only |
 | Manual state | `~/.local/state/switchctl/manual-state.json` | Never commit |
 | Tuya cloud extraction config | `~/.config/switchctl/tinytuya.json` | Never commit |
-| Tuya local keys | Named environment variables or local config | Never commit |
 
 Generated configuration and manual state files use mode `0600`.
 

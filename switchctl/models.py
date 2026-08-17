@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import os
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
@@ -19,16 +18,11 @@ class SwitchTarget:
     port: int | None = None
     device_id: str | None = None
     local_key: str | None = None
-    local_key_env: str | None = None
     switch_dp: str | int | None = None
     protocol_version: str | None = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "SwitchTarget":
-        local_key_env = data.get("local_key_env")
-        local_key = data.get("local_key")
-        if not local_key and local_key_env:
-            local_key = os.environ.get(local_key_env)
         return cls(
             id=data["id"],
             name=data.get("name", data["id"]),
@@ -41,8 +35,7 @@ class SwitchTarget:
             host=data.get("host"),
             port=data.get("port"),
             device_id=data.get("device_id"),
-            local_key=local_key,
-            local_key_env=local_key_env,
+            local_key=data.get("local_key"),
             switch_dp=data.get("switch_dp"),
             protocol_version=data.get("protocol_version"),
         )

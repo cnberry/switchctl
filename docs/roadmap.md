@@ -19,7 +19,7 @@
 ## Installer direction
 
 Deployment automation calls `script/install`, never a language-specific package
-manager. The current script uses `pipx`; a Rust migration should replace it with
+manager. The current script creates a system venv; a Rust migration should replace it with
 a verified binary or `cargo` installation while preserving that entry point.
 
 ## Out of scope by default

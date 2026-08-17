@@ -15,8 +15,8 @@ command already exists.
 - Read state before a write when the exact endpoint or current state is unclear.
 - Use `--yes` only after the selector, resulting target set, and action are clear.
 - Report the post-write state returned by the backend.
-- Never print or request a local key in chat; use the configured environment
-  variable or local mode-`0600` config.
+- Never print or request a local key in chat; use the deployed mode-`0600`
+  private config.
 - Follow the Tuya onboarding runbook instead of improvising cloud extraction.
 
 ## Commands
