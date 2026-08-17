@@ -18,7 +18,7 @@
       "host": "192.0.2.10",
       "port": 6668,
       "device_id": "replace-with-device-id",
-      "local_key_env": "SWITCHCTL_EXAMPLE_OUTLET_LOCAL_KEY",
+      "local_key": "replace-with-local-key",
       "switch_dp": "1",
       "protocol_version": "3.4",
       "notes": ["Use documentation-only values in public examples."]

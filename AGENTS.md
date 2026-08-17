@@ -38,4 +38,5 @@ rendering, and CLI dispatch separate.
 
 Public files may contain documentation-only values such as `192.0.2.10` and
 generic example names. Site inventory belongs in the private `home-ops` repo.
-Secrets remain in a password manager or local mode-`0600` files, never Git.
+Secrets may live in the private `home-ops` configuration deployed mode `0600`,
+but never in this public repository, logs, issues, or command output.

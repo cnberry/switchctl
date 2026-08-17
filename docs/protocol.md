@@ -14,8 +14,8 @@ network hardware.
 
 The Tuya backend uses `tinytuya` in-process for LAN status and setpoint calls.
 Required private fields are host, device ID, local key, and switch datapoint;
-protocol version defaults to 3.3. Local keys may come from an environment name
-declared by `local_key_env`, keeping the secret out of tracked configuration.
+protocol version defaults to 3.3. Local keys are read from the private
+mode-`0600` configuration and are never included in command output.
 
 The backend checks TCP reachability before protocol calls. A set operation reads
 status again and returns the state from that response. Device families and

@@ -2,15 +2,15 @@
 
 ## Config is not found
 
-Create `~/.config/switchctl/config.json` from the public example, install the
+Create `/usr/local/config/switchctl/config.json` from the public example, install the
 private home-ops inventory, or set `SWITCHCTL_CONFIG`. Repository-local runtime
 configuration is intentionally unsupported.
 
 ## A local key is missing
 
-If the target uses `local_key_env`, load that exact environment variable from a
-password manager in the process running `switchctl`. Inline keys remain
-supported only for local mode-`0600` configuration.
+Add the target's `local_key` to the private source configuration, run the
+`home-ops` bootstrap, and confirm `/usr/local/config/switchctl/config.json` is
+owned by the operating user with mode `0600`. Never paste the key into logs.
 
 ## A device is unreachable
 

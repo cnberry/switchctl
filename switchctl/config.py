@@ -10,7 +10,7 @@ from switchctl.errors import ConfigError
 from switchctl.models import SwitchTarget
 
 ENV_CONFIG_PATH = "SWITCHCTL_CONFIG"
-DEFAULT_CONFIG_PATH = Path.home() / ".config" / "switchctl" / "config.json"
+DEFAULT_CONFIG_PATH = Path("/usr/local/config/switchctl/config.json")
 DEFAULT_MANUAL_STATE_PATH = Path.home() / ".local" / "state" / "switchctl" / "manual-state.json"
 ROOT = Path(__file__).resolve().parent.parent
 EXAMPLE_CONFIG_PATH = ROOT / "config" / "switches.example.json"

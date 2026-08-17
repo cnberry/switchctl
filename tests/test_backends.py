@@ -17,7 +17,6 @@ def make_target(**overrides):
         "port": None,
         "device_id": None,
         "local_key": None,
-        "local_key_env": None,
         "switch_dp": None,
         "protocol_version": None,
         "notes": [],

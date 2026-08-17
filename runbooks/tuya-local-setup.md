@@ -57,24 +57,23 @@ If an allowlisted IPv4 project is reached over IPv6 and the provider rejects the
 request, constrain the extraction client to IPv4 using current TinyTuya guidance
 rather than copying an environment-specific script into public documentation.
 
-## 5. Record non-secret inventory
+## 5. Record private inventory
 
 Add the endpoint to private `home-ops` switch configuration with its meaningful
-local name, role, room, host, device ID, protocol version, and datapoint. Replace
-the local key with an environment reference such as:
+local name, role, room, host, device ID, local key, protocol version, and
+datapoint:
 
 ```json
 {
-  "local_key_env": "SWITCHCTL_EXAMPLE_OUTLET_LOCAL_KEY"
+  "local_key": "replace-with-local-key"
 }
 ```
 
-Store the actual variable value in a password manager on each authorized
-machine.
+Keep that repository private and deploy the config with mode `0600`.
 
 ## 6. Validate local control
 
-Install the private config, load the key environment variable, and run:
+Install the complete private config and run:
 
 ```bash
 switchctl status example-outlet
