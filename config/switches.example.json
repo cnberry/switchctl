@@ -1,0 +1,27 @@
+{
+  "targets": [
+    {
+      "id": "example-media-power",
+      "name": "Example Media Power",
+      "room": "example-room",
+      "role": "tv",
+      "backend": "manual",
+      "backend_id": "example-media-power",
+      "notes": ["Replace this entry with private site configuration."]
+    },
+    {
+      "id": "example-outlet",
+      "name": "Example Local Outlet",
+      "room": "example-room",
+      "role": "outlet",
+      "backend": "tuya-local",
+      "host": "192.0.2.10",
+      "port": 6668,
+      "device_id": "replace-with-device-id",
+      "local_key_env": "SWITCHCTL_EXAMPLE_OUTLET_LOCAL_KEY",
+      "switch_dp": "1",
+      "protocol_version": "3.4",
+      "notes": ["Use documentation-only values in public examples."]
+    }
+  ]
+}

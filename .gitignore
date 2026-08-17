@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.ruff_cache/
+.env
+dist/
+build/
+.cache/
+devices.json
+snapshot.json
+tuya-raw.json
+config/switches.json
+config/tinytuya.json
