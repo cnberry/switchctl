@@ -29,14 +29,14 @@ Python 3.11 or newer is required by the current implementation.
 ## Install
 
 ```bash
-cd /path/to/private/home-ops
+cd /path/to/private/home-config
 ./bin/bootstrap-ctls switchctl
 ```
 
-The private `home-ops` bootstrap is the canonical installer: it populates the
+The private `home-config` bootstrap is the canonical installer: it populates the
 real switch inventory, calls this repository's stable `script/install`
 contract, and creates `/usr/local/bin/switchctl` backed by an isolated system
-environment under `/usr/local/lib/home-ops/ctls`.
+environment under `/usr/local/lib/home-config/ctls`.
 
 ## Configure private switches
 
@@ -62,7 +62,7 @@ Store each Tuya local key directly in the private mode-`0600` configuration:
 ```
 
 The public repository and command output must never contain or print real keys.
-The private `home-ops` repository is the deployment source of truth and its
+The private `home-config` repository is the deployment source of truth and its
 bootstrap installs the complete configuration without runtime environment
 variables.
 

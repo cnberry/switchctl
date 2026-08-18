@@ -12,8 +12,9 @@ current instructions before creating cloud resources.
 - protocol version; and
 - switch datapoint, commonly but not universally `1`.
 
-Names, addresses, identifiers, and room metadata belong in the private
-`home-ops` inventory. Local and cloud keys do not belong in Git at all.
+Names, addresses, identifiers, room metadata, and local keys belong in the
+private `home-config` inventory. Cloud-extraction credentials and generated
+vendor snapshots do not belong in Git.
 
 ## 1. Pair a test device
 
@@ -38,7 +39,7 @@ Save TinyTuya cloud extraction credentials only in:
 ```
 
 Use the format expected by the installed `tinytuya` release and set mode `0600`.
-Do not put this file in `home-ops` or any other Git repository.
+Do not put this extraction file in `home-config` or any other Git repository.
 
 ## 4. Discover and extract
 
@@ -59,7 +60,7 @@ rather than copying an environment-specific script into public documentation.
 
 ## 5. Record private inventory
 
-Add the endpoint to private `home-ops` switch configuration with its meaningful
+Add the endpoint to private `home-config` switch configuration with its meaningful
 local name, role, room, host, device ID, local key, protocol version, and
 datapoint:
 

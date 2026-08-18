@@ -3,13 +3,13 @@
 ## Config is not found
 
 Create `/usr/local/config/switchctl/config.json` from the public example, install the
-private home-ops inventory, or set `SWITCHCTL_CONFIG`. Repository-local runtime
+private home-config inventory, or set `SWITCHCTL_CONFIG`. Repository-local runtime
 configuration is intentionally unsupported.
 
 ## A local key is missing
 
 Add the target's `local_key` to the private source configuration, run the
-`home-ops` bootstrap, and confirm `/usr/local/config/switchctl/config.json` is
+`home-config` bootstrap, and confirm `/usr/local/config/switchctl/config.json` is
 owned by the operating user with mode `0600`. Never paste the key into logs.
 
 ## A device is unreachable
