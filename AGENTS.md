@@ -37,6 +37,6 @@ rendering, and CLI dispatch separate.
 ## Public/private boundary
 
 Public files may contain documentation-only values such as `192.0.2.10` and
-generic example names. Site inventory belongs in the private `home-ops` repo.
-Secrets may live in the private `home-ops` configuration deployed mode `0600`,
+generic example names. Site inventory belongs in the private `home-config` repo.
+Secrets may live in the private `home-config` configuration deployed mode `0600`,
 but never in this public repository, logs, issues, or command output.
