@@ -1,13 +1,20 @@
 <p align="center">
-  <img src="docs/assets/switchctl-hero.jpg" alt="Illustration of a terminal controlling generic local switches" width="100%">
+  <img src="docs/assets/switchctl-hero.png" alt="A tiny coral robot flips a switch and turns on a lamp" width="100%">
 </p>
 
 # switchctl
+
+> **Tiny command. Satisfying click.**
+>
+> Pick a device. Say on. Watch light happen.
 
 `switchctl` is a small Python CLI for inspecting and operating named switch-
 backed endpoints. It provides one model for lights, media power, outlets, and
 similar devices while keeping backend-specific network details in private local
 configuration.
+
+No automation universe here—just readable state, an explicit command, and the
+pleasant little moment when the physical thing obeys.
 
 > [!WARNING]
 > `switchctl` controls powered equipment over local integrations. Verify the
